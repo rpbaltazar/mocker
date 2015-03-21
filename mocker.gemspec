@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["rui.p.baltazar@gmail.com"]
   spec.summary       = %q{Simple content generator based on real info}
   spec.description   = %q{Get a random existing place name, based on a list of weird name places around the world}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/rpbaltazar/mocker"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -18,10 +18,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency("i18n")
+  spec.add_dependency "i18n", "~> 0.7"
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec"
-  spec.add_development_dependency "fuubar"
+  spec.add_development_dependency "rspec", "~> 3.2"
+  spec.add_development_dependency "fuubar", "~> 2.0"
 end
