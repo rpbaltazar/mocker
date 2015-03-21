@@ -9,4 +9,5 @@ module Mocker
   # Your code goes here...
 end
 
+require "mocker/exceptions"
 require "mocker/place"
