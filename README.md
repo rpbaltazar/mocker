@@ -1,6 +1,9 @@
 # Mocker
 
-TODO: Write a gem description
+This gem is a data generation helper.
+It gives you real data for different types, but from the unusual list of names, just for fun!
+
+Currently only has locations available. More models will follow.
 
 ## Installation
 
@@ -20,7 +23,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'mocker'
+
+# returns one possible place
+Mocker::Place.name
+
+# returns a place from the country code passed (e.g. Mocker::Place.name_in 'us')
+Mocker::Place.name_in <2 letter country code>
+```
 
 ## Contributing
 
