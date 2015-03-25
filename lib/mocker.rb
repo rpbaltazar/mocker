@@ -10,3 +10,4 @@ module Mocker
 end
 
 require "mocker/place"
+require "mocker/name"
