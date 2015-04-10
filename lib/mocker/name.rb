@@ -2,7 +2,7 @@ module Mocker
   class Name
     class << self
       def famous_person
-        I18n.t("names").sample
+        I18n.t("names.famous_people").sample
       end
 
       def full_name
@@ -10,11 +10,12 @@ module Mocker
       end
 
       def first_name
-        "a"
+        all_first = I18n.t("names.first")
+        all_first.values.flatten.sample
       end
 
       def last_name
-        "b"
+        I18n.t("names.last").sample
       end
     end
   end
