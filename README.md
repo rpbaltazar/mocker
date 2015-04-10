@@ -31,6 +31,15 @@ Mocker::Place.name
 
 # returns a place from the country code passed (e.g. Mocker::Place.name_in 'us')
 Mocker::Place.name_in <2 letter country code>
+
+# returns a name of a 'famous person'
+Mocker::Name.famous_person
+
+# returns a first name
+Mocker::Name.first_name
+
+# returns a last name
+Mocker::Name.last_name
 ```
 
 ## Contributing
