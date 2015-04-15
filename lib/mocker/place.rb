@@ -4,20 +4,24 @@ module Mocker
     end
 
     class << self
-      def name
-        all_places = I18n.t("places")
-        all_places.values.flatten.sample
+      def name country_code=nil
+        translation = "places"
+        translation+=".#{country_code}" if country_code
+        all_places = I18n.t translation
+        all_places = all_places.values.flatten if all_places.is_a? Hash
+
+        if all_places.is_a?(String) && all_places.match('translation missing')
+          raise Mocker::Place::CountryNotFoundError
+        else
+          all_places.sample
+        end
       end
 
+      #NOTE: deprecated
       def name_in country_code=nil
-        return self.name if country_code.nil?
-
-        country_places = I18n.t("places.#{country_code}")
-        if country_places.is_a?(Array) && country_places.length > 0
-          country_places.sample
-        else
-          raise Mocker::Place::CountryNotFoundError
-        end
+        puts "Mocker::Place.name_in method is deprecated and will be removed in 1.0.0"
+        puts "Please use Mocker::Place.name '#{country_code}' instead"
+        return self.name country_code
       end
     end
   end

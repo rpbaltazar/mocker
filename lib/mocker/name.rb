@@ -11,10 +11,10 @@ module Mocker
 
       def first_name gender=nil
         translation="names.first"
-        translation+=".#{gender}" if !gender.nil?
+        translation+=".#{gender}" if gender
 
         all_first = I18n.t translation
-        all_first = all_first.values.flatten if all_first.is_a?(Hash)
+        all_first = all_first.values.flatten if all_first.is_a? Hash
         all_first.sample
       end
 
