@@ -11,3 +11,4 @@ end
 
 require "mocker/place"
 require "mocker/name"
+require "mocker/quote"

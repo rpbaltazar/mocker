@@ -1,5 +1,4 @@
 require "spec_helper"
-require "byebug"
 
 describe Mocker::Place do
   let(:available_names){
