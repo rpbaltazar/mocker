@@ -35,8 +35,11 @@ Mocker::Place.name_in <2 letter country code>
 # returns a name of a 'famous person'
 Mocker::Name.famous_person
 
+# returns a full name
+Mocker::Name.full_name gender
+
 # returns a first name
-Mocker::Name.first_name
+Mocker::Name.first_name gender
 
 # returns a last name
 Mocker::Name.last_name

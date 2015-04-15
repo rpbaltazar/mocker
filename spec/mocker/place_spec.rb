@@ -3,17 +3,11 @@ require "byebug"
 
 describe Mocker::Place do
   let(:available_names){
-    I18n.t 'intialize'
-    translations = I18n.backend.send(:translations)
-    all_countries_places = translations[:en][:places]
+    all_countries_places = I18n.t 'places'
     all_countries_places.values.flatten
   }
 
-  let(:available_names_in_us){
-    I18n.t 'intialize'
-    translations = I18n.backend.send(:translations)
-    translations[:en][:places][:us]
-  }
+  let(:available_names_in_us){ I18n.t 'places.us' }
 
   describe "name" do
     it "returns a name of an existing location, from the list" do

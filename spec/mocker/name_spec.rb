@@ -3,10 +3,10 @@ require "byebug"
 
 describe Mocker::Name do
   let(:available_names){ I18n.t 'names.famous_people' }
+  let(:female_names) { I18n.t 'names.first.female' }
+  let(:male_names) { I18n.t 'names.first.male' }
   let(:first_names){
-    translations = I18n.backend.send(:translations)
-    male_female_names = translations[:en][:names][:first]
-    male_female_names.values.flatten
+    female_names + male_names
   }
   let(:last_names){ I18n.t 'names.last' }
 
@@ -37,6 +37,38 @@ describe Mocker::Name do
       name_parts = full_name.split ' '
       expect(first_names).to include name_parts[0]
       expect(last_names).to include name_parts[1]
+    end
+  end
+
+  describe "female_name" do
+    it "returns a female first name and any last name from the list" do
+      female_name = Mocker::Name.full_name("female")
+      name_parts = female_name.split ' '
+      expect(female_names).to include name_parts[0]
+      expect(last_names).to include name_parts[1]
+    end
+  end
+
+  describe "female_first" do
+    it "returns a female first name from the list" do
+      female_name = Mocker::Name.first_name("female")
+      expect(female_names).to include female_name
+    end
+  end
+
+  describe "male_name" do
+    it "returns a male first name and any last name from the list" do
+      male_name = Mocker::Name.full_name("male")
+      name_parts = male_name.split ' '
+      expect(male_names).to include name_parts[0]
+      expect(last_names).to include name_parts[1]
+    end
+  end
+
+  describe "male_first" do
+    it "returns a male first name from the list" do
+      male_name = Mocker::Name.first_name("male")
+      expect(male_names).to include male_name
     end
   end
 end

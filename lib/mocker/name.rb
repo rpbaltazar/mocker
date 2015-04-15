@@ -5,13 +5,17 @@ module Mocker
         I18n.t("names.famous_people").sample
       end
 
-      def full_name
-        "#{first_name} #{last_name}"
+      def full_name gender=nil
+        "#{first_name gender} #{last_name}"
       end
 
-      def first_name
-        all_first = I18n.t("names.first")
-        all_first.values.flatten.sample
+      def first_name gender=nil
+        translation="names.first"
+        translation+=".#{gender}" if !gender.nil?
+
+        all_first = I18n.t translation
+        all_first = all_first.values.flatten if all_first.is_a?(Hash)
+        all_first.sample
       end
 
       def last_name
