@@ -1,5 +1,4 @@
 require "spec_helper"
-require "byebug"
 
 describe Mocker::Name do
   let(:available_names){ I18n.t 'names.famous_people' }
